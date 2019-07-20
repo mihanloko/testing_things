@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/get")
-    public Integer getSomething(@RequestParam(value = "number", defaultValue = "2") Integer num) {
+    public Integer getSomething(@RequestParam(value = "number", defaultValue = "3") Integer num) {
 
-        //something
         return num * num * num;
 
     }
