@@ -11,7 +11,7 @@ public class MyController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/get")
     public Integer getSomething(@RequestParam(value = "number", defaultValue = "2") Integer num) {
-
+        //comment
         return num * num * num;
 
     }
