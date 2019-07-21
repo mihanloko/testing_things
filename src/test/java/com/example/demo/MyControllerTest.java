@@ -8,7 +8,7 @@ public class MyControllerTest {
 
     @Test
     public void getSomething() {
-        Integer answer;
+        /*Integer answer;
         Integer actual;
         MyController controller = new MyController();
 
@@ -16,7 +16,7 @@ public class MyControllerTest {
         actual = controller.getSomething(10);
         assertEquals(answer, actual);
 
-        /*answer = 125;
+        answer = 125;
         actual = controller.getSomething(5);
         assertEquals(answer, actual);
 
