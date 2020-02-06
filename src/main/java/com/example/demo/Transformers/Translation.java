@@ -5,7 +5,7 @@ import com.example.demo.Picture.MyPoint;
 
 import java.util.LinkedList;
 
-public class Translation implements Transformer {
+public class Translation implements CoordinateMultiplier {
     private static final int delta = 5;
 
     @Override

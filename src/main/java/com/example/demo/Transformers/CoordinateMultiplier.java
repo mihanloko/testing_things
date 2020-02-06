@@ -5,6 +5,6 @@ import com.example.demo.Picture.MyPoint;
 
 import java.util.LinkedList;
 
-public interface Transformer {
+public interface CoordinateMultiplier {
     void transform(LinkedList<MyPoint> myPoints, Directions direction);
 }

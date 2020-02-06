@@ -21,13 +21,13 @@ public class Main extends Canvas implements Runnable {
     private static final int SCREEN_WIDTH = 1000;
     private static final int SCREEN_HEIGHT = 700;
 
-    private Transformer currentTransformer;
+    private CoordinateMultiplier currentCoordinateMultiplier;
 
     //переменные
     private LinkedList<MyPoint> allMyPoints = new LinkedList<>();
     private Picture picture = new Picture();
     private Projection projection = new Projection();
-    private ArrayList<Transformer> mods;
+    private ArrayList<CoordinateMultiplier> mods;
     private boolean isAPressed = false;
     private boolean isSPressed = false;
     private boolean isDPressed = false;
@@ -60,21 +60,21 @@ public class Main extends Canvas implements Runnable {
         while (running) {
             delta = System.currentTimeMillis() - lastTime;
             if (delta >= delay) {
-                if (currentTransformer instanceof Custom) {
+                if (currentCoordinateMultiplier instanceof Custom) {
 
-                    ((Custom) currentTransformer).setup(factor, x, y);
+                    ((Custom) currentCoordinateMultiplier).setup(factor, x, y);
                     for (int i = 0; i < 10; i++) {
-                        currentTransformer.transform(allMyPoints, Directions.OZPlus);
+                        currentCoordinateMultiplier.transform(allMyPoints, Directions.OZPlus);
                         render();
                         waiting();
                     }
-                    ((Custom) currentTransformer).setup(1.0 / factor, x, y);
+                    ((Custom) currentCoordinateMultiplier).setup(1.0 / factor, x, y);
                     for (int i = 0; i < 10; i++) {
-                        currentTransformer.transform(allMyPoints, Directions.OZPlus);
+                        currentCoordinateMultiplier.transform(allMyPoints, Directions.OZPlus);
                         render();
                         waiting();
                     }
-                    currentTransformer = mods.get(Mods.Translation.getNum());
+                    currentCoordinateMultiplier = mods.get(Mods.Translation.getNum());
                 }
                 else {
                     lastTime = System.currentTimeMillis();
@@ -93,7 +93,7 @@ public class Main extends Canvas implements Runnable {
         mods.add(new Rotation());
         mods.add(new Reflection());
         mods.add(new Custom());
-        currentTransformer = mods.get(Mods.Translation.getNum());
+        currentCoordinateMultiplier = mods.get(Mods.Translation.getNum());
 
         OX = new Edge(new MyPoint(0, 0, 0), new MyPoint(lengthOfAxis, 0, 0));
         OY = new Edge(new MyPoint(0, 0, 0), new MyPoint(0, lengthOfAxis, 0));
@@ -202,29 +202,29 @@ public class Main extends Canvas implements Runnable {
     //обновление дистанции и ускорения
     private void update() {
         if (isAPressed) {
-            currentTransformer.transform(allMyPoints, Directions.OXMinus);
+            currentCoordinateMultiplier.transform(allMyPoints, Directions.OXMinus);
         }
         if (isSPressed) {
-            currentTransformer.transform(allMyPoints, Directions.OYMinus);
+            currentCoordinateMultiplier.transform(allMyPoints, Directions.OYMinus);
         }
         if (isDPressed) {
-            currentTransformer.transform(allMyPoints, Directions.OXPlus);
+            currentCoordinateMultiplier.transform(allMyPoints, Directions.OXPlus);
 
         }
         if (isQPressed) {
-            currentTransformer.transform(allMyPoints, Directions.OZMinus);
+            currentCoordinateMultiplier.transform(allMyPoints, Directions.OZMinus);
 
         }
         if (isWPressed) {
-            currentTransformer.transform(allMyPoints, Directions.OYPlus);
+            currentCoordinateMultiplier.transform(allMyPoints, Directions.OYPlus);
 
         }
         if (isEPressed) {
-            currentTransformer.transform(allMyPoints, Directions.OZPlus);
+            currentCoordinateMultiplier.transform(allMyPoints, Directions.OZPlus);
 
         }
 
-        if (currentTransformer instanceof Reflection) {
+        if (currentCoordinateMultiplier instanceof Reflection) {
             setAPressed(false);
             setSPressed(false);
             setDPressed(false);
@@ -244,7 +244,7 @@ public class Main extends Canvas implements Runnable {
     }
 
     public void setMod(int mod) {
-        currentTransformer = mods.get(mod);
+        currentCoordinateMultiplier = mods.get(mod);
     }
 
     public void setAPressed(boolean flag) {

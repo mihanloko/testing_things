@@ -7,7 +7,7 @@ import com.example.demo.Picture.MyPoint;
 
 import java.util.LinkedList;
 
-public class Custom implements Transformer {
+public class Custom implements CoordinateMultiplier {
     private double factor;
     private int x;
     private int y;

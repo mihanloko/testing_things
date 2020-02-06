@@ -5,7 +5,7 @@ import com.example.demo.Picture.MyPoint;
 
 import java.util.LinkedList;
 
-public class Dilation implements Transformer {
+public class Dilation implements CoordinateMultiplier {
     private static final double factorPlus = 1.05;
     private static final double factorMinus = 1.0 / factorPlus;
 
