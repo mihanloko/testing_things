@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -37,7 +38,7 @@ public class ReflectionTest {
         for (int i = 0; i < 4; i++) {
             delta += Math.abs(coordinates[i] - result.getEntry(i, 0));
         }
-        assertTrue(delta < eps);
+        assertFalse(delta < eps);
         /*RealMatrix matrix1 = new Array2DRowRealMatrix(new double[][]{{1, 1, 1}, {1, 1, 1}, {1, 1, 1}});
         RealMatrix matrix2 = new Array2DRowRealMatrix(new double[][]{{1, 1, 1}, {1, 1, 1}, {1, 1, 1}});
         RealMatrix result = matrix1.multiply(matrix2);
