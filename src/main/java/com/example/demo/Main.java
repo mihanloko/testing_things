@@ -91,7 +91,7 @@ public class Main extends Canvas implements Runnable {
         mods.add(new Translation());
         mods.add(new Dilation());
         mods.add(new Rotation());
-        mods.add(new Reflection())
+        mods.add(new Reflection());
         mods.add(new Custom());
         currentTransformer = mods.get(Mods.Translation.getNum());
 
