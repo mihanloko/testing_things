@@ -1,4 +1,4 @@
-package com.example.demo.Transformers;
+package com.example.demo.Multipliers;
 
 
 
@@ -16,7 +16,7 @@ public class Custom implements CoordinateMultiplier {
     private static final Translation translation = new Translation();
 
     @Override
-    public void transform(LinkedList<MyPoint> myPoints, Directions direction) {
+    public void multiplie(LinkedList<MyPoint> myPoints, Directions direction) {
         translation.customTranslation(myPoints, -x, -y);
 
         dilation.customDilation(myPoints, factor);

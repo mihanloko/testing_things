@@ -1,4 +1,4 @@
-package com.example.demo.Transformers;
+package com.example.demo.Multipliers;
 
 import com.example.demo.Directions;
 import com.example.demo.Picture.MyPoint;
@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Reflection implements CoordinateMultiplier {
     @Override
-    public void transform(LinkedList<MyPoint> myPoints, Directions direction) {
+    public void multiplie(LinkedList<MyPoint> myPoints, Directions direction) {
         double[][] matrix = {
                 {1, 0, 0 , 0},
                 {0, 1, 0, 0},

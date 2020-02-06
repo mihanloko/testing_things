@@ -3,7 +3,7 @@ package com.example.demo;
 import com.example.demo.Picture.Edge;
 import com.example.demo.Picture.MyPoint;
 import com.example.demo.Picture.Picture;
-import com.example.demo.Transformers.*;
+import com.example.demo.Multipliers.*;
 
 
 import java.awt.*;
@@ -64,13 +64,13 @@ public class Main extends Canvas implements Runnable {
 
                     ((Custom) currentCoordinateMultiplier).setup(factor, x, y);
                     for (int i = 0; i < 10; i++) {
-                        currentCoordinateMultiplier.transform(allMyPoints, Directions.OZPlus);
+                        currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OZPlus);
                         render();
                         waiting();
                     }
                     ((Custom) currentCoordinateMultiplier).setup(1.0 / factor, x, y);
                     for (int i = 0; i < 10; i++) {
-                        currentCoordinateMultiplier.transform(allMyPoints, Directions.OZPlus);
+                        currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OZPlus);
                         render();
                         waiting();
                     }
@@ -202,25 +202,25 @@ public class Main extends Canvas implements Runnable {
     //обновление дистанции и ускорения
     private void update() {
         if (isAPressed) {
-            currentCoordinateMultiplier.transform(allMyPoints, Directions.OXMinus);
+            currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OXMinus);
         }
         if (isSPressed) {
-            currentCoordinateMultiplier.transform(allMyPoints, Directions.OYMinus);
+            currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OYMinus);
         }
         if (isDPressed) {
-            currentCoordinateMultiplier.transform(allMyPoints, Directions.OXPlus);
+            currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OXPlus);
 
         }
         if (isQPressed) {
-            currentCoordinateMultiplier.transform(allMyPoints, Directions.OZMinus);
+            currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OZMinus);
 
         }
         if (isWPressed) {
-            currentCoordinateMultiplier.transform(allMyPoints, Directions.OYPlus);
+            currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OYPlus);
 
         }
         if (isEPressed) {
-            currentCoordinateMultiplier.transform(allMyPoints, Directions.OZPlus);
+            currentCoordinateMultiplier.multiplie(allMyPoints, Directions.OZPlus);
 
         }
 

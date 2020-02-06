@@ -1,4 +1,4 @@
-package com.example.demo.Transformers;
+package com.example.demo.Multipliers;
 
 import com.example.demo.Directions;
 import com.example.demo.Picture.MyPoint;
@@ -6,5 +6,5 @@ import com.example.demo.Picture.MyPoint;
 import java.util.LinkedList;
 
 public interface CoordinateMultiplier {
-    void transform(LinkedList<MyPoint> myPoints, Directions direction);
+    void multiplie(LinkedList<MyPoint> myPoints, Directions direction);
 }

@@ -1,4 +1,4 @@
-package com.example.demo.Transformers;
+package com.example.demo.Multipliers;
 
 
 import com.example.demo.Directions;
@@ -27,7 +27,7 @@ public class ReflectionTest {
         MyPoint myPoint = new MyPoint(1, 2, 3);
         LinkedList<MyPoint> myPoints = new LinkedList<>();
         myPoints.add(myPoint);
-        reflection.transform(myPoints, Directions.OXPlus);
+        reflection.multiplie(myPoints, Directions.OXPlus);
         RealMatrix transformMatrix = new Array2DRowRealMatrix(matrix);
         RealMatrix pointMatrix = new Array2DRowRealMatrix(new double[][]{{1}, {2}, {3}, {1}});
         RealMatrix result = transformMatrix.multiply(pointMatrix);

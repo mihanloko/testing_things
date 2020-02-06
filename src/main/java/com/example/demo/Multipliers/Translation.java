@@ -1,16 +1,15 @@
-package com.example.demo.Transformers;
+package com.example.demo.Multipliers;
 
 import com.example.demo.Directions;
 import com.example.demo.Picture.MyPoint;
 
 import java.util.LinkedList;
 
-public class Dilation implements CoordinateMultiplier {
-    private static final double factorPlus = 1.05;
-    private static final double factorMinus = 1.0 / factorPlus;
+public class Translation implements CoordinateMultiplier {
+    private static final int delta = 5;
 
     @Override
-    public void transform(LinkedList<MyPoint> myPoints, Directions direction) {
+    public void multiplie(LinkedList<MyPoint> myPoints, Directions direction) {
         double[][] matrix = {
                 {1, 0, 0 , 0},
                 {0, 1, 0, 0},
@@ -19,22 +18,22 @@ public class Dilation implements CoordinateMultiplier {
         };
         switch (direction) {
             case OXPlus:
-                matrix[0][0] = factorPlus;
+                matrix[3][0] = delta;
                 break;
             case OYPlus:
-                matrix[1][1] = factorPlus;
+                matrix[3][1] = delta;
                 break;
             case OZPlus:
-                matrix[2][2] = factorPlus;
+                matrix[3][2] = delta;
                 break;
             case OXMinus:
-                matrix[0][0] = factorMinus;
+                matrix[3][0] = -delta;
                 break;
             case OYMinus:
-                matrix[1][1] = factorMinus;
+                matrix[3][1] = -delta;
                 break;
             case OZMinus:
-                matrix[2][2] = factorMinus;
+                matrix[3][2] = -delta;
                 break;
         }
 
@@ -43,12 +42,12 @@ public class Dilation implements CoordinateMultiplier {
         }
     }
 
-    void customDilation(LinkedList<MyPoint> myPoints, double factor) {
+    void customTranslation(LinkedList<MyPoint> myPoints, int x, int y) {
         double[][] matrix = {
-                {factor, 0, 0 , 0},
-                {0, factor, 0, 0},
+                {1, 0, 0 , 0},
+                {0, 1, 0, 0},
                 {0, 0, 1, 0},
-                {0, 0, 0, 1}
+                {x, y, 0, 1}
         };
 
         for (MyPoint myPoint : myPoints) {
